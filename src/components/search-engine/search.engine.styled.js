@@ -6,7 +6,7 @@ export const Container = styled.section`
 
 export const SearchEngine = styled.div`
   display: flex;
-  width: 85%;
+  width: 90%;
   max-width: 600px;
   margin: 0 auto;
   border: 1px solid #dadada;
@@ -19,9 +19,9 @@ export const SearchEngine = styled.div`
   }
 
   &:focus-within {
-    -webkit-box-shadow: 0px 0px 6px 0px #3f518d;
-    -moz-box-shadow: 0px 0px 6px 0px #3f518d;
-    box-shadow: 0px 0px 6px 0px #3f518d;
+    -webkit-box-shadow: 0px 0px 6px 0px #ec38dd;
+    -moz-box-shadow: 0px 0px 6px 0px #ec38dd;
+    box-shadow: 0px 0px 6px 0px #ec38dd;
   }
 
   input {
@@ -32,8 +32,11 @@ export const SearchEngine = styled.div`
   }
 
   svg {
-    margin: 15px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 36px;
     color: #a6a6a6;
+    cursor: pointer;
   }
 `;
 
@@ -42,10 +45,14 @@ export const Loader = styled.div`
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  svg {
+    color: #000;
+  }
 `;
 
 export const Images = styled.div`
-  margin: 30px 20px;
+  margin: 50px 20px 30px 20px;
 `;
 
 export const ImagesGrid = styled.div`

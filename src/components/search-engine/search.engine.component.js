@@ -18,6 +18,7 @@ export const SearchEngineComponent = () => {
   const [offset, setOffset] = useState(25);
   const [images, setImages] = useState([]);
   const [infiniteScrollLoader, setInfiniteScrollLoader] = useState(false);
+  const [responseLength, setResponseLength] = useState(0);
 
   const fetchData = async () => {
     setLoading(true);
@@ -29,6 +30,7 @@ export const SearchEngineComponent = () => {
       );
       const json = await response.json();
       await setImages(json.data);
+      setResponseLength(json.data.length);
       setLoading(false);
       setInfiniteScrollLoader(true);
     } catch (error) {
@@ -46,6 +48,7 @@ export const SearchEngineComponent = () => {
       );
       const json = await response.json();
       await setImages(images.concat(json.data));
+      setResponseLength(json.data.length);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('API response error', error);
@@ -60,7 +63,10 @@ export const SearchEngineComponent = () => {
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && query !== '' && fetchData()}
         />
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon
+          icon={faSearch}
+          onClick={() => query !== '' && fetchData()}
+        />
       </SearchEngine>
       <Images>
         <Grid>
@@ -75,7 +81,11 @@ export const SearchEngineComponent = () => {
                 dataLength={images.length}
                 next={fetchMoreData}
                 hasMore
-                loader={<h4>Loading...</h4>}
+                loader={
+                  responseLength === 25 && (
+                    <h4 style={{ marginTop: '40px' }}>Loading...</h4>
+                  )
+                }
               >
                 <ImagesGrid>
                   {images.map((img) => {

@@ -7,8 +7,16 @@ export const Header = styled.header`
   background: radial-gradient(
     circle,
     rgba(33, 34, 28, 1) 60%,
-    rgba(252, 70, 70, 1) 90%
+    rgba(236, 56, 221, 1) 100%
   );
+
+  @media (min-width: 480px) {
+    background: radial-gradient(
+      circle,
+      rgba(33, 34, 28, 1) 40%,
+      rgba(236, 56, 221, 1) 100%
+    );
+  }
 `;
 
 export const HeaderTitle = styled.h1`
