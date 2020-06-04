@@ -25,7 +25,7 @@ export const SearchEngineComponent = () => {
     setOffset(25);
     try {
       const response = await fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${query}&limit=25&offset=0&rating=G&lang=en`
+        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${query}&limit=25&offset=0&rating=G&lang=en`
       );
       const json = await response.json();
       await setImages(json.data);
@@ -42,7 +42,7 @@ export const SearchEngineComponent = () => {
     setOffset(limitImagesFetch + offset);
     try {
       const response = await fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${query}&limit=25&offset=${offset}&rating=G&lang=en`
+        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=${query}&limit=25&offset=${offset}&rating=G&lang=en`
       );
       const json = await response.json();
       await setImages(images.concat(json.data));
