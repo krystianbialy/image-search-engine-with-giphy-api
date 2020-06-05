@@ -11,6 +11,7 @@ export const SearchEngine = styled.div`
   margin: 0 auto;
   border: 1px solid #dadada;
   border-radius: 24px;
+  background: #fff;
 
   &:hover {
     -webkit-box-shadow: 0px 0px 6px 0px #a6a6a6;
@@ -39,6 +40,12 @@ export const SearchEngine = styled.div`
     cursor: pointer;
   }
 `;
+
+export const SearchEngineStickyStyle = {
+  padding: '12px 0',
+  background:
+    'radial-gradient(circle,rgba(33, 34, 28, 1) 60%,rgba(236, 56, 221, 1) 100%)',
+};
 
 export const Loader = styled.div`
   position: absolute;

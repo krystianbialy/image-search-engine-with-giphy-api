@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Sticky from 'react-sticky-el';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Grid, GridColumn } from '../../theme/grid';
 import {
   Container,
   SearchEngine,
+  SearchEngineStickyStyle,
   Loader,
   Images,
   ImagesGrid,
@@ -57,17 +59,19 @@ export const SearchEngineComponent = () => {
 
   return (
     <Container>
-      <SearchEngine>
-        <input
-          placeholder="Search images..."
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && query !== '' && fetchData()}
-        />
-        <FontAwesomeIcon
-          icon={faSearch}
-          onClick={() => query !== '' && fetchData()}
-        />
-      </SearchEngine>
+      <Sticky stickyStyle={SearchEngineStickyStyle}>
+        <SearchEngine>
+          <input
+            placeholder="Search images..."
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && query !== '' && fetchData()}
+          />
+          <FontAwesomeIcon
+            icon={faSearch}
+            onClick={() => query !== '' && fetchData()}
+          />
+        </SearchEngine>
+      </Sticky>
       <Images>
         <Grid>
           <GridColumn>
