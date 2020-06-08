@@ -29,7 +29,9 @@ export const SearchEngine = styled.div`
     width: 100%;
     min-width: 105px;
     margin: 0 0 0 20px;
+    font-size: 15px;
     border: none;
+    outline: none;
   }
 
   svg {

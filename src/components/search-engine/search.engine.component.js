@@ -90,6 +90,7 @@ export const SearchEngineComponent = () => {
                     <h4 style={{ marginTop: '40px' }}>Loading...</h4>
                   )
                 }
+                style={{ overflow: 'none' }}
               >
                 <ImagesGrid>
                   {images.map((img) => {
