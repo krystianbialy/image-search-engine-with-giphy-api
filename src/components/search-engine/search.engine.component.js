@@ -100,7 +100,7 @@ export const SearchEngineComponent = () => {
                         key={img.id}
                         target="blank"
                       >
-                        <img src={img.images.original.url} alt="img" />
+                        <img src={img.images.original.url} alt="" />
                       </a>
                     );
                   })}
